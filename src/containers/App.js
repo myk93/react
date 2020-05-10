@@ -21,7 +21,8 @@ class App extends Component {
       { id: 'fgddfgh', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
-    ShowPerson: false
+    ShowPerson: false,
+    showCockpit: true
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -46,7 +47,9 @@ class App extends Component {
     persons.splice(personIndex, 1);
     this.setState({ persons: persons })
   }
-
+  removeCockpitHandler = () => {
+    this.setState({ showCockpit: !this.state.showCockpit });
+  }
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex((p) => p.id === id)
 
@@ -64,7 +67,10 @@ class App extends Component {
   render() {
     console.log('App render called');
     let persons = null;
-
+    let Tcockpit = null;
+    if (this.state.showCockpit) {
+      Tcockpit = <Cockpit Ttitle={this.props.title} persons={this.state.persons} showPerson={this.state.showPerson} toggle={this.togglePersonHandler} />
+    }
     if (this.state.ShowPerson) {
       persons =
         <div className={classes.App} >
@@ -77,7 +83,8 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit Ttitle={this.props.title} persons={this.state.persons} showPerson={this.state.showPerson} toggle={this.togglePersonHandler} />
+        <button onClick={this.removeCockpitHandler}>remove Cockpit</button>
+        {Tcockpit}
         {persons}
       </div>
 

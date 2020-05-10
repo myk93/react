@@ -4,7 +4,15 @@ import classes from './Cockpit.css';
 const cockpit = props => {
     useEffect(() => {//component did update+did mount
         console.log('cockpit useEffect called');
-    })
+        setTimeout(() => {
+            alert('saved data to cloud')
+        }, 1000)
+
+        return () => {
+            console.log('cockpit useEffect return');
+        }
+
+    }, [])
     let btnClass = '';
     if (props.showPerson) {
         btnClass = classes.Red;
@@ -19,7 +27,7 @@ const cockpit = props => {
 
     }
     return (
-        <div className={classes.Cockpit}>
+        <div className={classes.Cockpit} >
             <h1>{props.Ttitle}</h1>
             <p className={Aclasses.join(' ')}>This is really working!</p>
             <button
