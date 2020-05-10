@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = props => {
+    useEffect(() => {//component did update+did mount
+        console.log('cockpit useEffect called');
+    })
     let btnClass = '';
     if (props.showPerson) {
         btnClass = classes.Red;
@@ -26,4 +29,4 @@ const cockpit = props => {
     );
 }
 
-export default cockpit;
+export default cockpit; 

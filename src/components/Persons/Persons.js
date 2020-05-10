@@ -16,10 +16,12 @@ class Persons extends Component {
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('persons getSnapshotBeforeUpdate called');
+        return { messege: 'snapshot' };
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('persons componentDidUpdate called');
+        console.log(snapshot);
     }
 
     render() {

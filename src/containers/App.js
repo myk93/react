@@ -21,15 +21,25 @@ class App extends Component {
       { id: 'fgddfgh', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
-    ShowPerson: true
+    ShowPerson: false
   }
 
   static getDerivedStateFromProps(props, state) {
     console.log('App getDerivedStateFromProps called');
     return state;
   }
+
   componentDidMount() {
     console.log('App componentDidMount called');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('app called shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('app called componentDidUpdate');
   }
   deletePersonHandler = (personIndex) => {
     const persons = this.state.persons.slice();
