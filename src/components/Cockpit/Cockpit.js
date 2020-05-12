@@ -13,16 +13,22 @@ const cockpit = props => {
         }
 
     }, [])
+    useEffect(() => {
+        console.log('cockpit 2nd UseEffect');
+        return () => {
+            console.log('cockpit 2nd return useEffect ');
+        }
+    })
     let btnClass = '';
     if (props.showPerson) {
         btnClass = classes.Red;
     }
 
     const Aclasses = [];
-    if (props.persons.length <= 2)
+    if (props.personLength <= 2)
         Aclasses.push(classes.red);
 
-    if (props.persons.length <= 1) {
+    if (props.personLength <= 1) {
         Aclasses.push(classes.bold);
 
     }
@@ -37,4 +43,4 @@ const cockpit = props => {
     );
 }
 
-export default cockpit; 
+export default React.memo(cockpit); 
