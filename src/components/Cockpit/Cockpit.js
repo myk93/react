@@ -5,7 +5,7 @@ const cockpit = props => {
     useEffect(() => {//component did update+did mount
         console.log('cockpit useEffect called');
         setTimeout(() => {
-            alert('saved data to cloud')
+            // alert('saved data to cloud')
         }, 1000)
 
         return () => {
