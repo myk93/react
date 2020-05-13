@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import Person from './Person/Person';
-
+//import clasess from './Person/Person.css';
 
 class Persons extends PureComponent {
 
@@ -40,6 +40,7 @@ class Persons extends PureComponent {
                     age={person.age}
                     key={person.id}
                     changed={(event) => this.props.changed(event, person.id)}
+                    isAut={this.props.isA}
                 />
             );
         });

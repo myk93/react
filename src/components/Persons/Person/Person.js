@@ -3,7 +3,7 @@ import Auxilary from './././../../../hoc/Auxiliary'
 import withClass from '../../../hoc/withClass';
 import clasess from './Person.css';
 import PropTypes from 'prop-types';
-
+import AuthContext from '../../../context/auth-context'
 class Person extends Component {
 
     constructor() {
@@ -18,6 +18,13 @@ class Person extends Component {
         console.log('Person rendering');
         return (
             <Auxilary>
+                <AuthContext.Consumer>
+                    {(context) => (
+                        context.authenticated ? <p key='i0'>Authintcated</p> : <p key='i0'>somthing else</p>
+                    )
+                    }
+                </AuthContext.Consumer>
+
                 <p key='i1' onClick={this.props.click}>
                     I'm {this.props.name} and I am {this.props.age} years old!
                 </p>
